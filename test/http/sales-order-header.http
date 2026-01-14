@@ -1,0 +1,21 @@
+GET http://localhost:4004/odata/v4/main/SalesOrderHearder
+Content-Type: application/json
+
+###
+
+POST http://localhost:4004/odata/v4/main/SalesOrderHearder
+Content-Type: application/json
+
+{}
+
+###
+DELETE  http://localhost:4004/odata/v4/main/SalesOrderHearder(1234)
+Content-Type: application/json
+
+###
+PUT  http://localhost:4004/odata/v4/main/SalesOrderHearder(2a1e9829-8cb3-4608-83fe-7eba9224c97c)
+Content-Type: application/json
+
+{
+    "modifiedBy": "teste"
+}
