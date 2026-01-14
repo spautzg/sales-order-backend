@@ -1,0 +1,31 @@
+@localhost=localhost:4004/odata/v4/main
+@id=21fcb526-3de7-4ff6-9978-d36cf6647470
+
+GET http://{{localhost}}/Customers
+Content-Type: application/json
+
+###
+
+POST http://{{localhost}}/Customers
+Content-Type: application/json
+
+{
+    "id": "21fcb526-3de7-4ff6-9978-d36cf6647470",
+    "firstName": "Gilvan",
+    "lastName": "Spautz",
+    "email": "gilvan.spautz@teste.com"
+}
+
+###
+PATCH  http://{{localhost}}/Customers(id={{id}})
+Content-Type: application/json
+
+{
+    "firstName": "Gilvan"
+}
+
+# entity Customers {
+#     key id: UUID;
+#     firstName: String(20);
+#     lastName: String(100);
+#     email: String(255);
