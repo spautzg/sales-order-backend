@@ -24,8 +24,7 @@ Content-Type: application/json
     "firstName": "Gilvan"
 }
 
-# entity Customers {
-#     key id: UUID;
-#     firstName: String(20);
-#     lastName: String(100);
-#     email: String(255);
+
+###
+GET http://{{localhost}}/Customers?$filter=endswith(firstName, '-15968629') and email ne 'email-15968629'
+Content-Type: application/json
