@@ -67,3 +67,9 @@ Content-Type: application/json
 # Expandindo os items, produtos e customers e filtrando
 GET http://{{localhost}}/SalesOrderHearder?$expand=items($expand=product;$filter=quantity le 46),customer
 Content-Type: application/json
+
+
+###
+# Selecionar somente customer e id do Sales Order Header
+GET http://{{localhost}}/SalesOrderHearder?$select=customer&$expand=customer($select=email)
+Content-Type: application/json
