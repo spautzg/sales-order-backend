@@ -83,3 +83,9 @@ Content-Type: application/json
 # Paginando os registros
 GET http://{{localhost}}/SalesOrderHearder?$skip=5&$top=2
 Content-Type: application/json
+
+###
+# Buscando dados com $search
+GET http://{{localhost}}/SalesOrderHearder?$search=w02k
+Content-Type: application/json
+
