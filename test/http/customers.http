@@ -33,3 +33,7 @@ Content-Type: application/json
 # Buscando dados com $search
 GET http://{{localhost}}/Customers?$search=firstName2
 Content-Type: application/json
+
+###
+# ordenando dados com $orderby
+GET http://{{localhost}}/Customers?$orderby=firstName, lastName desc
