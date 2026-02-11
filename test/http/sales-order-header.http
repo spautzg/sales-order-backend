@@ -8,11 +8,13 @@
 
 GET http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
+Authorization: Basic gilvan:123456
 
 ###
 
 POST http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
+Authorization: Basic gilvan:123456
 
 {"id": "{{id}}",
 "customer_id": "{{customerId}}",
@@ -42,6 +44,7 @@ Content-Type: application/json
 ###
 PUT  http://{{localhost}}/SalesOrderHeader(id={{id}})
 Content-Type: application/json
+Authorization: Basic gilvan:123456
 
 {
     "modifiedBy": "teste"
@@ -52,41 +55,42 @@ Content-Type: application/json
 # Buscar todos os pedidos maiores ou iguais a 2 milhoes
 GET http://{{localhost}}/SalesOrderHeader?$filter=totalAmount ge 2000000
 Content-Type: application/json
+Authorization: Basic gilvan1:123456
 
 ###
 # Buscar todos os pedidos menores ou iguais a 200k
 GET http://{{localhost}}/SalesOrderHeader?$filter=totalAmount le 200000
 Content-Type: application/json
-
+Authorization: Basic gilvan1:123456
 
 ###
 # Expandindo os items, produtos e customers
 GET http://{{localhost}}/SalesOrderHeader?$expand=items($expand=product),customer
 Content-Type: application/json
-
+Authorization: Basic gilvan1:123456
 ###
 # Expandindo os items, produtos e customers e filtrando
 GET http://{{localhost}}/SalesOrderHeader?$expand=items($expand=product;$filter=quantity le 46),customer
 Content-Type: application/json
-
+Authorization: Basic gilvan1:123456
 
 ###
 # Selecionar somente customer e id do Sales Order Header
 GET http://{{localhost}}/SalesOrderHeader?$select=customer&$expand=customer($select=email)
 Content-Type: application/json
-
+Authorization: Basic gilvan1:123456
 ###
 # Descobrindo a quantidade de registros
 GET http://{{localhost}}/SalesOrderHeader/$count
 Content-Type: application/json
-
+Authorization: Basic gilvan1:123456
 ###
 # Paginando os registros
 GET http://{{localhost}}/SalesOrderHeaders?$skip=5&$top=2
 Content-Type: application/json
-
+Authorization: Basic gilvan1:123456
 ###
 # Buscando dados com $search
 GET http://{{localhost}}/SalesOrderHeaders?$search=w02k
 Content-Type: application/json
-
+Authorization: Basic gilvan1:123456
