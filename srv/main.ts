@@ -1,6 +1,7 @@
 import cds, { db, Request, Service } from '@sap/cds';
 import { Customers, Product, Products, SalesOrderHeaders, SalesOrderItem, SalesOrderItems } from '@models/sales';
-import { request } from 'axios';
+import { customerController } from './factories/controllers/customer';
+import { FullReuqestParams } from './protocols';
 
 export default (service: Service) => {
     service.before('READ', '*', (request: Request) => {
@@ -15,12 +16,9 @@ export default (service: Service) => {
         }
     });
 
-    service.after('READ', 'Customers', (results: Customers) => {
-        results.forEach(customer => {
-            if (!customer.email?.includes('@')) {
-                customer.email = `${customer.email}@gmail.com`;
-            }
-        })
+    service.after('READ', 'Customers', (customerList: Customers, request) => {
+
+        (request as unknown as FullReuqestParams<Customers>).results = customerController.afterRead(customerList);
     });
     service.before('CREATE', 'SalesOrderHeaders', async (request: Request) => {
         const params = request.data;
