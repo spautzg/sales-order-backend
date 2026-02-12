@@ -1,5 +1,5 @@
 @localhost=localhost:4004/odata/v4/main
-@id=496accfc-b34f-4f7c-ade3-1d44aef2136f
+@id=1493082a-9128-4973-892f-550b1ca747f7
 @customerId=15968623-5b27-46d2-a8a6-1389bb63601b
 #produto sem estoque
 @productId1=42232154-0d3f-491a-a2d0-8314ce46fd4d
@@ -8,7 +8,7 @@
 
 GET http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
-Authorization: Basic gilvan:123456
+Authorization: Basic gilvan:Gs@123456
 
 ###
 
@@ -38,13 +38,14 @@ Authorization: Basic gilvan:123456
 }
 
 ###
-DELETE  http://{{localhost}}/SalesOrderHeader(id={{id}})
+DELETE  http://{{localhost}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
+Authorization: Basic gilvan:Gs@123456
 
 ###
-PUT  http://{{localhost}}/SalesOrderHeader(id={{id}})
+PUT  http://{{localhost}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
-Authorization: Basic gilvan:123456
+Authorization: Basic gilvan1:123456
 
 {
     "modifiedBy": "teste"
@@ -53,7 +54,7 @@ Authorization: Basic gilvan:123456
 
 ###
 # Buscar todos os pedidos maiores ou iguais a 2 milhoes
-GET http://{{localhost}}/SalesOrderHeader?$filter=totalAmount ge 2000000
+GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount ge 2000000
 Content-Type: application/json
 Authorization: Basic gilvan1:123456
 

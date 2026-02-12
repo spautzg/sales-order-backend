@@ -11,31 +11,23 @@
                 "kind": "basic",
                 "users": {
                     "gilvan": {
-                        "password": "123456",
+                        "password": "Gs@123456",
                         "roles": [
                             "admin"
                         ],
-                        "attr": {
-                            "id": 1,
-                            "groups": [
-                                "grupo1",
-                                "grupo2"
-                            ]
-                        }
+                        "ID": "1",
+                        "groups": "grupo1,grupo2"
                     },
-                    "gilvan2": {
-                        "password": "123456",
+                    "gilvan1": {
+                        "password": "Gs@123456",
                         "roles": [
                             "read_only_user"
                         ],
-                        "attr": {
-                            "id": 2,
-                            "groups": [
-                                "grupo1"
-                            ]
-                        }
+                        "ID": "2",
+                        "groups": "grupo1"
                     }
                 }
             }
         }
     }
+}
