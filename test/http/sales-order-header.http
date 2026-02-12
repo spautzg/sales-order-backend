@@ -1,5 +1,5 @@
 @localhost=localhost:4004/odata/v4/main
-@id=1493082a-9128-4973-892f-550b1ca747f7
+@id=1493082a-9128-4973-892f-550b1ca747f9
 @customerId=15968623-5b27-46d2-a8a6-1389bb63601b
 #produto sem estoque
 @productId1=42232154-0d3f-491a-a2d0-8314ce46fd4d
@@ -8,17 +8,16 @@
 
 GET http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
-Authorization: Basic gilvan:Gs@123456
+Authorization: Basic gilvan1:Gs@123456
 
 ###
 
 POST http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
-Authorization: Basic gilvan:123456
+Authorization: Basic gilvan:Gs@123456
 
 {"id": "{{id}}",
 "customer_id": "{{customerId}}",
-"totalAmount": 4.98,
 "items": [
     {
         "id": "f8d912e8-ff1e-4c13-8f64-6f9dba9d2fa9",

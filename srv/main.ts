@@ -13,7 +13,7 @@ export default (service: Service) => {
             return request.reject(403, 'Não autorizada a escrita/deleção');
         }
     });
-    
+
     service.after('READ', 'Customers', (results: Customers) => {
         results.forEach(customer => {
             if (!customer.email?.includes('@')) {
@@ -23,7 +23,7 @@ export default (service: Service) => {
     });
     service.before('CREATE', 'SalesOrderHeaders', async (request: Request) => {
         const params = request.data;
-        const items: SalesOrderItems= params.items;
+        const items: SalesOrderItems = params.items;
         if (!params.customer_id) {
             return request.reject(400, 'Invalid Customer');
         }
@@ -46,8 +46,13 @@ export default (service: Service) => {
             if (dbProduct.stock === 0) {
                 return request.reject(400, `Produto ${dbProduct.name}(${dbProduct.id}) sem estoque disponível`);
             }
-
         }
+        let totalAmount = 0;
+        items.forEach(item => {
+            totalAmount += (item.price as number) * (item.quantity as number);
+        });
+        console.log(params);
+        request.data.totalAmount = totalAmount;
     });
     service.after('CREATE', 'SalesOrderHeaders', async (results: SalesOrderHeaders) => {
         const headersAsArray = Array.isArray(results) ? results : [results] as SalesOrderHeaders;
@@ -63,8 +68,8 @@ export default (service: Service) => {
             for (const productData of productsData) {
                 const foundProduct = products.find(product => product.id === productData.id) as Product;
                 foundProduct.stock = (foundProduct.stock as number) - productData.quantity;
-                await cds.update('sales.Products').where({ id:foundProduct.id }).with({ stock: foundProduct.stock });
+                await cds.update('sales.Products').where({ id: foundProduct.id }).with({ stock: foundProduct.stock });
             }
-            }
+        }
     })
 }
