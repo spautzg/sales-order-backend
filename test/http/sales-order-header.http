@@ -24,14 +24,14 @@ Authorization: Basic gilvan:Gs@123456
         "header_id": "{{id}}",
         "product_id": "{{productId2}}",
         "quantity": 10,
-        "price": 1000
+        "price": 2.99
     },
     {
         "id": "a7da4135-9a26-4960-a7e5-3daa970131cc",
         "header_id": "{{id}}",
         "product_id": "{{productId2}}",
         "quantity": 5,
-        "price": 5000
+        "price": 5.00
     }
 ]
 }
