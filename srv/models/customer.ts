@@ -1,6 +1,6 @@
 import { Customer } from "@models/sales";
 
-type CustomerProps = {
+export type CustomerProps = {
   id: string;
   firstName: string;
   lastName: string;
@@ -10,7 +10,7 @@ type CustomerProps = {
 export class CustomerModel {
     constructor(private props: CustomerProps) {}
 
-    public static create(props: CustomerProps) {
+    public static with(props: CustomerProps) {
         return new CustomerModel(props);
     }
 
